@@ -1,0 +1,22 @@
+@EndUserText.label : 'Migration Object Scoping table for template details'
+@AbapCatalog.enhancement.category : #EXTENSIBLE_ANY
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table moscope_hdr {
+
+  @AbapCatalog.foreignKey.screenCheck : true
+  key mandt     : mandt not null
+    with foreign key t000
+      where mandt = moscope_hdr.mandt;
+  key area_name : moscope_area_name not null;
+  area_descr    : moscope_area_descr;
+  trfm_obj_type : moscope_trfm_obj_type;
+  trfm_obj      : moscope_trfm_obj;
+  rfc_dest      : rfcdest;
+  created_on    : ersda;
+  created_by    : ernam;
+  changed_on    : laeda;
+  changed_by    : aenam;
+
+}

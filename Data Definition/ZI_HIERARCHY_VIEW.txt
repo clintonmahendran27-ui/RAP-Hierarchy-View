@@ -1,0 +1,17 @@
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+
+define hierarchy ZI_HIERARCHY_VIEW
+  as parent child hierarchy(
+    source ZI_MOSOPE_VIEW
+    child to parent association _Parent
+    start where RootTab = 'X'
+    siblings order by DmTable
+    multiple parents not allowed
+  )
+
+{
+  key AreaName,
+  key DmTable,
+
+      ParentTab
+}

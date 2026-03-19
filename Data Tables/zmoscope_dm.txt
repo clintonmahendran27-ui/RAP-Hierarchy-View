@@ -1,0 +1,27 @@
+@EndUserText.label : 'Migration Object Scoping table for data model details'
+@AbapCatalog.enhancement.category : #EXTENSIBLE_ANY
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #W
+@AbapCatalog.dataMaintenance : #ALLOWED
+define table zmoscope_dm {
+
+  @AbapCatalog.foreignKey.screenCheck : true
+  key mandt     : mandt not null
+    with foreign key t000
+      where mandt = zmoscope_dm.mandt;
+  @AbapCatalog.foreignKey.screenCheck : true
+  key area_name : moscope_area_name not null
+    with foreign key moscope_hdr
+      where mandt = zmoscope_dm.mandt
+        and area_name = zmoscope_dm.area_name;
+  key dm_table  : moscope_tab_name not null;
+  parent_tab    : moscope_parent_tab;
+  hier_lvl      : moscope_hier_lvl;
+  base_tab      : moscope_basetab;
+  root_tab      : moscope_roottab;
+  created_on    : ersda;
+  created_by    : ernam;
+  changed_on    : laeda;
+  changed_by    : aenam;
+
+}

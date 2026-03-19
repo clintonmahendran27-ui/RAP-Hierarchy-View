@@ -1,0 +1,32 @@
+@AbapCatalog.viewEnhancementCategory: [ #NONE ]
+
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+
+@EndUserText.label: 'Interface View: Sales Organization'
+
+@Metadata.ignorePropagatedAnnotations: true
+
+@ObjectModel.usageType: { serviceQuality: #X, sizeCategory: #S, dataClass: #MIXED }
+
+define view entity ZI_MOSOPE_VIEW
+  as select from zmoscope_dm
+
+  association to ZI_MOSOPE_VIEW as _Parent on $projection.ParentTab = _Parent.DmTable
+  association to moscope_hdr    as _Text   on zmoscope_dm.area_name = _Text.area_name
+
+{
+  key zmoscope_dm.area_name  as AreaName,
+  key zmoscope_dm.dm_table   as DmTable,
+
+      zmoscope_dm.parent_tab as ParentTab,
+      zmoscope_dm.hier_lvl   as HierLvl,
+      zmoscope_dm.base_tab   as BaseTab,
+      zmoscope_dm.root_tab   as RootTab,
+      zmoscope_dm.created_on as CreatedOn,
+      zmoscope_dm.created_by as CreatedBy,
+      zmoscope_dm.changed_on as ChangedOn,
+      zmoscope_dm.changed_by as ChangedBy,
+      _Text.area_descr       as Description,
+
+      _Parent
+}

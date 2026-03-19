@@ -1,0 +1,33 @@
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+
+@EndUserText.label: 'Projection View: Sales Organization'
+
+@Metadata.allowExtensions: true
+@Metadata.ignorePropagatedAnnotations: true
+
+@OData.hierarchy.recursiveHierarchy: [ { entity.name: 'ZI_HIERARCHY_VIEW' } ]
+
+@ObjectModel.usageType: { serviceQuality: #X, sizeCategory: #S, dataClass: #MIXED }
+
+define view entity ZC_MOSOPE_VIEW
+  as select from ZI_MOSOPE_VIEW
+
+  association of many to one ZC_MOSOPE_VIEW as _Parent on $projection.ParentTab = _Parent.DmTable
+
+{
+  key ZI_MOSOPE_VIEW.AreaName,
+  key ZI_MOSOPE_VIEW.DmTable,
+
+      ZI_MOSOPE_VIEW.ParentTab,
+      ZI_MOSOPE_VIEW.HierLvl,
+      ZI_MOSOPE_VIEW.BaseTab,
+      ZI_MOSOPE_VIEW.RootTab,
+      ZI_MOSOPE_VIEW.CreatedOn,
+      ZI_MOSOPE_VIEW.CreatedBy,
+      ZI_MOSOPE_VIEW.ChangedOn,
+      ZI_MOSOPE_VIEW.ChangedBy,
+      ZI_MOSOPE_VIEW.Description,
+
+      /* Associations */
+      _Parent
+}

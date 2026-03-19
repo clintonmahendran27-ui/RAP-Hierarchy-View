@@ -1,0 +1,26 @@
+@Metadata.layer: #CORE
+annotate entity ZC_MOSOPE_VIEW
+  with 
+{
+  @UI.lineItem: [{ position : 10 }]
+  AreaName;
+  @UI.lineItem: [{ position : 20 }]
+  DmTable;
+  @UI.lineItem: [{ position : 30 }]
+  ParentTab;
+  @UI.lineItem: [{ position : 40 }]
+  HierLvl;
+  @UI.lineItem: [{ position : 50 }]
+  BaseTab;
+  @UI.lineItem: [{ position : 60 }]
+  RootTab;
+  @UI.lineItem: [{ position : 70 }]
+  CreatedOn;
+  @UI.lineItem: [{ position : 80 }]
+  CreatedBy;
+  @UI.lineItem: [{ position : 90 }]
+  ChangedOn;
+  @UI.lineItem: [{ position : 100 }]
+  ChangedBy;
+  
+}
